@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+
+    <h1>NEWS 고객관리 보고서</h1>
+    <div class="news"></div>
+    <div class="section">
+        <div class="container-fluid">
+            <div id="row"><!--1번쨰줄-->
+                <svg id="row1_1">
+                    <text text-anchor="middle" x="125" y="70">총회원수</text>
+                    <text id="number" text-anchor="middle" x="125"  y="150" fill=#3659EA font-size=1.4em>29176명</text>
+                </svg>      
+                <svg id="row1_2" width=250 height=200>
+                    <text text-anchor="middle" x="125" y="70">평균거래액</text>
+                    <text id="number" text-anchor="middle" x="125" y="150"fill=#3659EA font-size=1.4em>₩29362</text>
+                </svg>
+                <svg id="row1_3" width=250 height=200>
+                    <text text-anchor="middle" x="125" y="50">평균 이탈</text>
+                    <text text-anchor="middle" x="125" y="95">위험도</text>
+                    <text id="number" text-anchor="middle" x="125"y="150"fill=#3659EA font-size=1.4em>2.38</text>
+                </svg>               
+                <svg id="row1_4" width=250 height=200>
+                    <text text-anchor="middle" x="125" y="50">이탈</text>
+                    <text text-anchor="middle" x="125" y="95">고위험도</text>
+                    <text id="number" text-anchor="middle" x="125" y="150"fill=#3659EA font-size=1.4em>54.2%</text>
+                </svg>
+                <svg id="row1_5" width=250 height=200>
+                   <text text-anchor="middle" x="125" y="70">평균접속시간</text>
+                    <text id="number" text-anchor="middle" x="125" y="150"fill=#3659EA font-size=1.4em>294초</text> 
+                </svg>
+            </div>
+
+            <div style="display:flex"><!--2번쨰줄-->    
+                <div class="row2"><!--2번쨰줄 왼쪽-->
+                <div class="mem">위험도 분포</div>
+                    <svg id="row2_1"width=500 height=300>
+                        <text id="linex" text-anchor="left" x="90" y="35">(명)</text>
+                        <text id="linex" text-anchor="right" x="430" y="280">위험도</text>
+                    </svg>
+                    <svg id="row4_1" width=500 height=600>
+                        <text id="linex" text-anchor="middle" x="270" y="500">포인트</text>
+                        <text id="linex" text-anchor="left" x="80" y="40">평균거래액</text>
+                        <text id="linex" text-anchor="middle" x="450" y="40">위험도</text>
+                    </svg>
+                    
+                </div>
+                <div>
+                    <div class="row4" style="width:1300px"><!--2번쨰줄 오른쪽 위-->
+                    <div class="mem">Complain</div>
+                        <svg id="row2_2" width=850 height=300>
+                            <text id="linex" text-anchor="left" x="200" y="40">피드백</text>
+                            <text id="linex" text-anchor="right" x="710" y="275">(명)</text>
+                        </svg>
+                        <svg id="row2_3" width=300 height=280>
+                            <text id="linex" text-anchor="right" x="130" y="270">complain 해결도</text>
+                        </svg>
+                    </div>
+                    <div class="row4" style="width:1300"><!--2번쨰줄 오른쪽 아래-->
+                    <div class="mem">월별 위험도 및 가입자 수 변화</div>
+                        <svg id="row4_2" width=540 height=600>
+                            <text id="linex" text-anchor="middle" x="270" y="530">Month</text>
+                            <text id="linex" text-anchor="left" x="80" y="40">위험도</text>
+                        </svg>
+                        <svg id="row4_3" width=540 height=600>
+                            <text id="linex" text-anchor="middle" x="270" y="530">가입 월</text>
+                            <text id="linex" text-anchor="left" x="80" y="40">(명)</text>
+                        </svg>
+                    </div>
+                </div> 
+            </div>        
+            
+            <div class="row3">
+                <div class="mem">Membership 등급 별 인원 수</div>
+                <div class="memfilter" style="float:left;">
+                Filter<br/>
+                    <input type="radio" name="chk_info" value="All"checked="checked"onclick="javascript:getMembership(event);"> All<br/>
+                    <input type="radio" name="chk_info" value="No Membership"onclick="javascript:getMembership(event);"> No Membership<br/>
+                    <input type="radio" name="chk_info" value="Basic Membership"onclick="javascript:getMembership(event);"> Basic Membership<br/>
+                    <input type="radio" name="chk_info" value="Silver Membership"onclick="javascript:getMembership(event);"> Silver Membership<br/>
+                    <input type="radio" name="chk_info" value="Gold Membership"onclick="javascript:getMembership(event);"> Gold Membership<br/>
+                    <input type="radio" name="chk_info" value="Platinum Membership"onclick="javascript:getMembership(event);"> Platinum Membership<br/>
+                    <input type="radio" name="chk_info" value="Premium Membership"onclick="javascript:getMembership(event);"> Premium Membership
+                </div>
+                <div>
+                    <svg id="row3_1" width=350 height=300>
+                        </svg>
+                    <svg id="row3_2" width=350 height=300>
+                    </svg>
+                    <svg id="row3_3" width=350 height=300>
+                    </svg>
+                    <svg id="row3_4" width=350 height=300>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+
+<script src="./js/pie1.js"></script>
+<script src="./js/2017_joinging.js"></script>
+<script src="./js/2017_mean_churn.js"></script>
+<script src="./js/membership.js"></script>
+<script src="./js/line+bar.js"></script>
+<script src="./js/Scatterplot.js"></script>
+
+
